@@ -1,3 +1,11 @@
+
+<?php
+require('connection.php');
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,13 +17,13 @@
 </head>
 
 <body >
-  
+  <div class="full-div">
     <!----------------------------------------- Register box div ----------------------------------------------->
     <div class="container" id="signup" style="display:none;">
 
       <h1 class="form-title">Create Account</h1>
       <!------------------------------------------Registration form started---------------------------------------->
-      <form method="post" action="#">
+      <form method="post" action="login_register.php">
 
         <div class="input-group">
            <i class="fas fa-user"></i>
@@ -60,7 +68,7 @@
         <h1 class="form-title" id="form-title">Login</h1>
        <!-------------------------------log in form started--------------------------------------------------------------->
 
-        <form method="post" action="#">
+        <form method="post" action="login_register.php">
 
           <div class="input-group">
 
@@ -77,7 +85,7 @@
           </div>
 
           <p class="recover">
-            <a href="#">Forgot Password ?</a>
+            <a href="forgot-password.php">Forgot Password ?</a>
           </p>
          <input type="submit" class="btn" value="Login" name="signIn">
         </form>
@@ -97,6 +105,7 @@
         </div>
 
       </div>
+  </div>
       
       <script src="script.js"></script>
 </body>
