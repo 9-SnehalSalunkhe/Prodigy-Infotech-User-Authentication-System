@@ -4,7 +4,8 @@
     box-sizing:border-box;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
-.full-div{
+body{
+
      background-image: url(images/bg.jpg);
      background-repeat: no-repeat;
      background-size: cover;
@@ -34,7 +35,7 @@ form{
     margin-top:42px;
 }
 input{
-    color:inherit;
+    color:white;
     width:100%;
     background-color:transparent;
     border:none;
@@ -146,10 +147,10 @@ button{
     font-weight: bold;
     font-size: 1rem;
     border-radius: 7px;
-    
-    margin-left: 12px;
-    padding: 3px;
-    
+
+    margin-left: 15px;
+    padding: 0px;
+
     font-weight: bold;
     font-size: 17px;
 }

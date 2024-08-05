@@ -43,6 +43,7 @@ require('connection.php');
         <div class="input-group">
             <i class="fas fa-lock"></i>
             <input type="password" name="password" id="password" placeholder="Password" required>
+            <i class="fas fa-eye" id="togglePassword"></i>
             <label for="password">Password</label>
         </div>
        <input type="submit" class="btn" value="Register" name="signUp">
@@ -106,7 +107,7 @@ require('connection.php');
 
       </div>
   </div>
-      
+
       <script src="script.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include 'connection.php';
 
@@ -32,17 +32,17 @@ if(isset($_POST['signUp'])){
                 window.location.href='index.php';
                 </script>";
             }
-    
-            else 
+
+            else
              { // If data not inserted successfully
                 echo "<script>
                 alert('Query cannot run');
                 window.location.href='index.php';
                 </script>";
             }
-    
+
      }
-   
+
 
 }
 
@@ -50,9 +50,9 @@ if(isset($_POST['signIn'])){
    $email=$_POST['email'];
    $password=$_POST['password'];
    $password=md5($password) ;
-   
+
    $sql="SELECT * FROM users WHERE email='$email' and password='$password'";
-   
+
    $result=$conn->query($sql);
    if($result->num_rows>0){
     session_start();

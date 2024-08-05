@@ -1,12 +1,39 @@
 <?php
 include('connection.php');
-$email = $_POST["email"];
-$token = bin2hex(random_bytes(16));
-$token_hash = hash("sha256",$token); //hashing of token algo
-$expiry = date("y-m-d H:i:s", time() + 60 * 15);//expiry time
-$sql= "update users set reset_token_hash =?,
-                        reset_token_hash_expires_at = ? where email = ?";
-$stmt = $conn->prepare($sql);
-$stmt ->bind_param("sss",$token_hash,$expiry,$email);
-$stmt ->execute();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST["email"];
+    $new_password = $_POST["new_password"];
+
+    // Validate inputs (you may add more validation as needed)
+    if (empty($email) || empty($new_password)) {
+        // Handle validation errors or show appropriate message
+        echo "Email and new password are required.";
+        exit;
+    }
+
+    // Hash the new password with MD5 (not recommended, use bcrypt or stronger)
+    $hashed_password = md5($new_password);
+
+    // Update password in the database
+    $sql_update_password = "UPDATE users SET password = ? WHERE email = ?";
+    $stmt_update_password = $conn->prepare($sql_update_password);
+    $stmt_update_password->bind_param("ss", $hashed_password, $email);
+    $stmt_update_password->execute();
+
+    // Check if the update was successful
+    if ($stmt_update_password->affected_rows > 0) {
+        echo "Password updated successfully.";
+    } else {
+        echo "Failed to update password.";
+    }
+
+    // Close statement and connection
+    $stmt_update_password->close();
+    $conn->close();
+
+    // Redirect to index.php after a delay
+    header("refresh:3; url=index.php"); // Redirect after 3 seconds
+    exit;
+}
 ?>

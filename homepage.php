@@ -1,7 +1,6 @@
 <?php
 session_start();
 include("connection.php");
-
 ?>
 
 
@@ -11,11 +10,11 @@ include("connection.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
-   
 
-    
+
+
     <link rel="stylesheet" href="Homepage.css">
-    
+
     </head>
 
 <body>
@@ -25,12 +24,12 @@ include("connection.php");
 <div class="navbar-right">
              <button class="btn" type="submit"><a href="logout.php">Logout</a></button>
 </div>
-  
+
 </nav>
 
     <div style="text-align:center; padding:15%;">
       <p  style="font-size:50px; font-weight:bold;">
-       Hello  <?php 
+       Hello  <?php
        if(isset($_SESSION['email'])){
         $email=$_SESSION['email'];
         $query=mysqli_query($conn, "SELECT users.* FROM `users` WHERE users.email='$email'");
@@ -40,9 +39,8 @@ include("connection.php");
         }
        }
        ?>
-    
-       
-    
+
+
 </div>
 </body>
 </html>
